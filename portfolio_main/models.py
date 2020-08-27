@@ -13,10 +13,9 @@ class Main(models.Model):
     linkedin = models.CharField(default='-', max_length=50)
     github = models.CharField(default='-', max_length=50)
     site_name = models.CharField(default='-', max_length=50)
-    resume = models.FileField(upload_to='media/')
-    cover_letter = models.FileField(upload_to='media/')
-    user_pic = models.TextField(default='-')
-    user_pic_url = models.TextField(default="-")
+    resume = models.FileField()
+    cover_letter = models.FileField()
+    user_pic = models.ImageField()
 
 
     def __str__(self):
@@ -43,9 +42,13 @@ class Accomplishment(models.Model):
     accolade = models.CharField(max_length=50)
 
 
-class Interests(models.Model):
+class Projects(models.Model):
 
-    interests = models.CharField(max_length=50)
+    project = models.CharField(max_length=50)
+    organisation = models.CharField(max_length=50)
+    description = models.TextField(max_length=50)
+    start_from = models.CharField(max_length=50)
+    till = models.CharField(max_length=50)
 
 
 class Education(models.Model):
