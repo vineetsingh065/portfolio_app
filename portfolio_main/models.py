@@ -12,6 +12,8 @@ class Main(models.Model):
     email = models.CharField(default='-', max_length=50)
     linkedin = models.CharField(default='-', max_length=50)
     github = models.CharField(default='-', max_length=50)
+    twitter = models.CharField(default='-', max_length=50)
+    facebook = models.CharField(default='-', max_length=50)
     site_name = models.CharField(default='-', max_length=50)
     resume = models.FileField()
     cover_letter = models.FileField()
