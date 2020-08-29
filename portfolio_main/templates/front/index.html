@@ -116,18 +116,19 @@
 
             <hr class="m-0" />
             <!-- Awards-->
+            {% if accom.count != 0 %}
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Awards & Certifications</h2>
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Automation excellence Award
+                            Automation Excellence Award
                         </li>
-
                     </ul>
                 </div>
             </section>
+            {% endif %}
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
