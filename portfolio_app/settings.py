@@ -26,7 +26,7 @@ SECRET_KEY = 'occ&&ts+uk_nuvk1z(thi=vqxzx^xp-p#5#lif&ht1g39(@pfl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vineet065.pythonanywhere.com']
 
 
 # Application definition
