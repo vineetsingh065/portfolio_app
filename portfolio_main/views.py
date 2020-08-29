@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Main, TechnicalSkills
+from .models import Main, TechnicalSkills, Experience, Education
 
 # Create your views here.
 
@@ -7,5 +7,7 @@ from .models import Main, TechnicalSkills
 def home(request):
     main = Main.objects.get(pk=1)
     ts = TechnicalSkills.objects.all()
+    exp = Experience.objects.all()
+    edu = Education.objects.all()
 
-    return render(request, 'front/index.html', {'details': main, 'ts':ts})
+    return render(request, 'front/index.html', {'details': main, 'ts':ts, 'exp': exp, 'edu': edu})

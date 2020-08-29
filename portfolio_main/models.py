@@ -34,7 +34,7 @@ class Experience(models.Model):
 
     role = models.CharField(max_length=50)
     organisation = models.CharField(max_length=50)
-    role_description = models.CharField(max_length=50)
+    role_description = models.TextField(max_length=1500)
     start_from = models.CharField(max_length=50)
     till = models.CharField(max_length=50)
 
@@ -57,6 +57,7 @@ class Education(models.Model):
 
     institute = models.CharField(max_length=50)
     course = models.CharField(max_length=50)
+    stream = models.CharField(max_length=50)
     score = models.CharField(max_length=50)
     start_from = models.CharField(max_length=50)
     till = models.CharField(max_length=50)
