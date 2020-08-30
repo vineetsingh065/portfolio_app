@@ -48,9 +48,12 @@ class Projects(models.Model):
 
     project = models.CharField(max_length=50)
     organisation = models.CharField(max_length=50)
-    description = models.TextField(max_length=50)
+    description = models.TextField(max_length=1500)
+    role = models.TextField(max_length=100)
+    tech_stack = models.TextField(max_length=1500)
     start_from = models.CharField(max_length=50)
     till = models.CharField(max_length=50)
+    pic = models.ImageField(default='-')
 
 
 class Education(models.Model):

@@ -9825,7 +9825,7 @@ a.text-success:hover, a.text-success:focus {
 }
 
 .text-info {
-  color: #17a2b8 !important;
+  color: #bd5d38 !important;
 }
 
 a.text-info:hover, a.text-info:focus {
@@ -10130,7 +10130,7 @@ section.resume-section .resume-section-content {
   section.resume-section {
     padding-left: 3rem;
     padding-right: 3rem;
-    padding-top: 130px;
-    padding-bottom: 10px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }

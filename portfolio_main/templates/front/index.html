@@ -30,8 +30,9 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
 
                 </ul>
             </div>
@@ -57,11 +58,11 @@
                                 </div>
                                 <div class="card-action">
                                   <div class="social-icons " align="center" >
-                                    <a class="social-icon" href="{{ details.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="social-icon" href="{{ details.github }}"><i class="fab fa-github"></i></a>
-                                    <a class="social-icon" href="{{ details.twitter }}"><i class="fab fa-twitter"></i></a>
-                                    <a class="social-icon" href="{{ details.facebook }}"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="social-icon" href="mailto:{{ details.email }}"><i class="fab fa fa-envelope"></i></a>
+                                    <a class="social-icon" href="{{ details.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="social-icon" href="{{ details.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a class="social-icon" href="{{ details.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a class="social-icon" href="{{ details.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="social-icon" href="mailto:{{ details.email }}" target="_blank"><i class="fab fa fa-envelope"></i></a>
                                 </br>
                                 </div>
                             </div>
@@ -110,6 +111,74 @@
                 </div>
             </section>
 
+            <!-- Projects-->
+            <section class="resume-section" id="projects">
+                <div class="resume-section-content">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <h2 class="mb-5" align="center">Projects</h2>
+                        <div class="row">
+                                <div class="card-deck ">
+                                    {% for project in proj %}
+                                    <div id="accordion">
+                                        <div class="card mb-4 shadow p-3 mb-5 bg-white rounded" align="center" style="min-width: 11rem; max-width: 20rem;">
+
+                                            <div class="card-header" id="headingOne">
+                                                  <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ project.pk }}543" aria-expanded="true" aria-controls="collapseOne">
+                                                        <p style="font-size: 30px">{{ project.project|make_list|slice:':1'|join:''  }}</p>
+                                                    </button>
+                                                  </h5>
+                                            </div>
+
+                                            <div id="collapseOne{{ project.pk }}543" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <img class="card-img-top" src="{{ project.pic.url }}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ project.project }}</h5>
+                                                <p class="card-text">{{ project.description }}</p>
+                                            </div>
+                                            <hr class="md 0">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item"><strong>Organisation: </strong> {{ project.organisation }}</li>
+                                                <li class="list-group-item"><strong>Role:</strong> {{ project.role }}</li>
+                                                <li class="list-group-item"><strong>Tech:</strong> {{ project.tech_stack }}</li>
+                                            </ul>
+                                            <hr class="md 0">
+                                            <p class="card-text" align="center"><small class="text-muted"><strong>Duration:</strong> {{ project.start_from }}-{{ project.till }}</small></p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+        <!-- Skills-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                      <h2 class="mb-3" align="center">Skills</h2>
+                        <ul class="list-group list-inline dev-icons shadow p-3 mb-5 bg-white rounded">
+                            {% for skills in ts %}
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{skills.skill_name}}
+                                <span class="badge badge-primary badge-pill">{{skills.confidence}}</span>
+                                </li>
+                            {%endfor%}
+                        </ul>
+                          </div>
+
+
+                </div>
+
+            <div class="row">
+
+            </section>
+
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
@@ -150,29 +219,6 @@
             </section>
 
 
-            <!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-                      <h2 class="mb-3" align="center">Skills</h2>
-                        <ul class="list-group list-inline dev-icons">
-                            {% for skills in ts %}
-                              <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{skills.skill_name}}
-                                <span class="badge badge-primary badge-pill">{{skills.confidence}}</span>
-                                </li>
-                            {%endfor%}
-                        </ul>
-                          </div>
-
-
-                </div>
-            
-            <div class="row">
-
-            </section>
-
             <!-- Awards-->
             {% if accom.count != 0 %}
             <section class="resume-section" id="awards">
@@ -188,7 +234,7 @@
             </section>
             {% endif %}
         </div>
-
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
