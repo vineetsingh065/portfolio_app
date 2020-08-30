@@ -15,8 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-        <link href="{% static 'css/button_styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/layout_styles.css' %}" rel="stylesheet" />
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -41,80 +41,138 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        {{ details.name }}
-                    </h1>
-                    <div class="subheading mb-2">
-                         <p class="text-info"> Software Engineer/Automation Developer· </p>
+
+
+                    <div class="row">
+                            <div class="col s12 m6">
+                              <div class="card">
+                                <div class="card-content white-text">
+                                  <h1 class="mb-0" align="center">
+                                        {{ details.name }}
+                                  </h1>
+                                  <div class="subheading mb-2">
+                                    <p class="text-info" align="center"> Software Engineer/Automation Developer  ·  (+91) {{ details.contact }} ·  <a href="mailto:{{ details.email }}">{{ details.email }}</a></p>
+                                  </div>
+                                  <p class="lead mb-5">{{ details.about }}</p>
+                                </div>
+                                <div class="card-action">
+                                  <div class="social-icons" align="center">
+                                    <a class="social-icon" href="{{ details.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="social-icon" href="{{ details.github }}"><i class="fab fa-github"></i></a>
+                                    <a class="social-icon" href="{{ details.twitter }}"><i class="fab fa-twitter"></i></a>
+                                    <a class="social-icon" href="{{ details.facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="social-icon" href="mailto:{{ details.email }}"><i class="fab fa fa-envelope"></i></a>
+                                </br>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
-                    <div class="subheading mb-3">
-                        (+91) {{ details.contact }} ·
-                        <a href="mailto:{{ details.email }}">{{ details.email }}</a>
-                    </div>
-                    <p class="lead mb-5">{{ details.about }}</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="{{ details.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="{{ details.github }}"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="{{ details.twitter }}"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="{{ details.facebook }}"><i class="fab fa-facebook-f"></i></a>
-                        <a class="social-icon" href="mailto:{{ details.email }}"><i class="fab fa fa-envelope"></i></a>
-                    </div>
-                </div>
+
             </section>
-            <hr class="m-0" />
+
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Experience</h2>
+
+
+                <div class="card">
+                    <h2 class="mb-5" align="center">Experience</h2>
                     {% for experience in exp %}
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">{{ experience.role }}</h3>
-                            <div class="subheading mb-3">{{ experience.organisation }}</div>
-                            <p> {{ experience.role_description }} </p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">{{ experience.start_from }} - {{ experience.till }}</span></div>
+                    <div id="accordion">
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ experience.pk }}" aria-expanded="true" aria-controls="collapseOne">
+                                    <p style="font-size: 30px">{{ experience.role }} | {{ experience.start_from }} - {{ experience.till }}</p>
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseOne{{ experience.pk }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                        <div class="flex-grow-1">
+                                            <h3 class="mb-0">{{ experience.role }}</h3>
+                                            <div class="subheading mb-3">{{ experience.organisation }}</div>
+                                            <p> {{ experience.role_description }} </p>
+                                        </div>
+                                        <div class="flex-shrink-0"><span class="text-primary">{{ experience.start_from }} - {{ experience.till }}</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                     </div>
+                    <br/>
                     {% endfor %}
+                          </div>
+
                 </div>
             </section>
-            <hr class="m-0" />
+
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-4">Education</h2>
-                    {% for education in edu %}
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">{{ education.institute }}</h3>
-                            <div class="subheading mb-3">{{ education.course }}</div>
-                            <div>{{ education.stream }} - {{ education.course }}</div>
-                            <p>{{ education.score }}</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">{{ education.start_from }} - {{ education.till }}</span></div>
+
+                 <div class="card">
+                      <h2 class="mb-4" align="center">Education</h2>
+                {% for education in edu %}
+                    <div id="accordion">
+                          <div class="card">
+                            <div class="card-header" id="headingOne">
+                              <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ education.pk }}12300" aria-expanded="true" aria-controls="collapseOne">
+                                    <p style="font-size: 30px">{{ education.institute }}</p>
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseOne{{ education.pk }}12300" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                        <div class="flex-grow-1">
+                                            <h3 class="mb-0">{{ education.institute }}</h3>
+                                            <div class="subheading mb-3">{{ education.course }}</div>
+                                            <div>{{ education.stream }} - {{ education.course }}</div>
+                                            <p>{{ education.score }}</p>
+                                        </div>
+                                        <div class="flex-shrink-0"><span class="text-primary">{{ education.start_from }} - {{ education.till }}</span></div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
                     </div>
+                    <br/>
                     {% endfor %}
+                          </div>
 
                 </div>
             </section>
-            <hr class="m-0" />
+
+
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-3">Skills</h2>
-                    <ul class="list-inline dev-icons">
-                        {% for skill in ts %}
-                        <li class="list-inline-item">
-                        <button class="button" data-hover="{{ skill.confidence }}" data-active="I'M ACTIVE"><span>{{ skill.skill_name }}</span></button>
-                        </li>
-                        {% endfor %}
-                    </ul>
+
+                <div class="card">
+                      <h2 class="mb-3" align="center">Skills</h2>
+                        <ul class="list-group list-inline dev-icons">
+                            {% for skills in ts %}
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{skills.skill_name}}
+                                <span class="badge badge-primary badge-pill">{{skills.confidence}}</span>
+                                </li>
+                            {%endfor%}
+                        </ul>
+                          </div>
+
 
                 </div>
-            </section>
-            <hr class="m-0" />
+            
+            <div class="row">
 
-            <hr class="m-0" />
+            </section>
+
             <!-- Awards-->
             {% if accom.count != 0 %}
             <section class="resume-section" id="awards">
@@ -130,6 +188,7 @@
             </section>
             {% endif %}
         </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
