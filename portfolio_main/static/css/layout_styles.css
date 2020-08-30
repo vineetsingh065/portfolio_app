@@ -358,11 +358,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 6rem;
+  font-size: 45px;
 }
 
 h2, .h2 {
-  font-size: 3.5rem;
+  font-size: 40px;
 }
 
 h3, .h3 {
@@ -561,8 +561,9 @@ pre code {
 
 .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
  
-  background-image: linear-gradient(123deg, #ebe8f0 25%, #79bdb5 25%, #79bdb5 50%, #ebe8f0 50%, #ebe8f0 75%, #79bdb5 75%, #79bdb5 100%);
-background-size: 9.54px 14.69px;
+  /*background-image: linear-gradient(123deg, #ebe8f0 25%, #79bdb5 25%, #79bdb5 50%, #ebe8f0 50%, #ebe8f0 75%, #79bdb5 75%, #79bdb5 100%);*/
+/*background-size: 9.54px 14.69px;*/
+  background-image: url("/static/Violet space.jpg");
   background-color: #fff;
   width: 100%;
   padding-right: 0.75rem;
@@ -10047,6 +10048,7 @@ p.lead {
 
 @media (min-width: 992px) {
   #sideNav {
+    background-image: url("/static/Violet space.jpg");
     text-align: center;
     position: fixed;
     top: 0;
@@ -10064,7 +10066,7 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+    border: 0;
   }
   #sideNav .navbar-collapse {
     display: flex;
