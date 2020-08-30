@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2979c51c-a3d6-434c-a713-fb9384e0ea05" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/portfolio_app/settings.py" afterPath="$PROJECT_DIR$/portfolio_app/settings.py" />
-      <change beforePath="$PROJECT_DIR$/portfolio_main/static/css/styles.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/portfolio_main/templates/front/index.html" afterPath="$PROJECT_DIR$/portfolio_main/templates/front/index.html" />
+      <change beforePath="$PROJECT_DIR$/portfolio_main/media/IMG_20170723_161858470.jpg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
