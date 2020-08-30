@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="google-site-verification" content="1GZCeLWUOCN43diKpKdC0Ds_gF9Ew969vZNM-V8bW-c" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -46,7 +47,7 @@
 
                     <div class="row">
                             <div class="col s12 m6">
-                              <div class=" card">
+                              <div class="card ">
                                 <div class="card-content white-text shadow p-3 mb-5 bg-white rounded">
                                   <h1 class="mb-0" align="center">
                                         {{ details.name }}
@@ -56,7 +57,7 @@
                                   </div>
                                   <p class="lead mb-5">{{ details.about }}</p>
                                 </div>
-                                <div class="card-action">
+                                <div class="card-action ">
                                   <div class="social-icons " align="center" >
                                     <a class="social-icon" href="{{ details.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                     <a class="social-icon" href="{{ details.github }}" target="_blank"><i class="fab fa-github"></i></a>
@@ -117,7 +118,7 @@
                     <div class="card shadow p-3 mb-5 bg-white rounded">
                         <h2 class="mb-5" align="center">Projects</h2>
                         <div class="row">
-                                <div class="card-deck ">
+                                <div class="card-deck">
                                     {% for project in proj %}
                                     <div id="accordion">
                                         <div class="card mb-4 shadow p-3 mb-5 bg-white rounded" align="center" style="min-width: 11rem; max-width: 20rem;">
@@ -188,7 +189,7 @@
                 {% for education in edu %}
                     <div id="accordion">
                           <div class="card ">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header " id="headingOne">
                               <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ education.pk }}12300" aria-expanded="true" aria-controls="collapseOne">
                                     <p style="font-size: 30px">{{ education.institute }}</p>
@@ -234,7 +235,7 @@
             </section>
             {% endif %}
         </div>
-        
+
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
