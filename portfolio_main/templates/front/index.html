@@ -18,6 +18,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/layout_styles.css' %}" rel="stylesheet" />
 
+        <link href="{% static 'css/testimonial-slider-fullwidth.css' %}" rel="stylesheet">
+
 
     </head>
     <body id="page-top">
@@ -35,22 +37,24 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#recommendations">Recommendations</a></li>
 
                 </ul>
             </div>
         </nav>
         <!-- Page Content-->
         <div class="container-fluid p-0">
+
+
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-
-
                     <div class="row">
                             <div class="col s12 m6">
                               <div class="card ">
                                 <div class="card-content white-text shadow p-3 mb-5 bg-white rounded">
                                   <h1 class="mb-0" align="center">
+
                                         {{ details.name }}
                                   </h1>
                                   <div class="subheading mb-2">
@@ -207,11 +211,10 @@
                     </div>
                     <br/>
                     {% endfor %}
-                          </div>
+                 </div>
 
                 </div>
             </section>
-
 
             <!-- Awards-->
             {% if accom.count != 0 %}
@@ -228,6 +231,37 @@
             </section>
             {% endif %}
 
+            <section class="resume-section testimonials py-5 text-white px-1 px-md-5 margin-top-xl" id="recommendations">
+                <div class="resume-section-content">
+                    <div class="card shadow p-3 mb-5 bg-white rounded" >
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12" style="background-color: #8fd19e">
+                    <h2 class="pt-2 text-center font-weight-bold">What People Say About Me.</h2>
+                      <hr "md-0">
+
+                    <div class="carousel-controls testimonial-carousel-controls">
+                      <div class="control d-flex align-items-center justify-content-center prev mt-3" style="background-color: #1aaad1"><i class="fa fa-chevron-left" style="background-color: #1694b0"></i></div>
+                      <div class="control d-flex align-items-center justify-content-center next mt-3" style="background-color: #1aaad1"><i class="fa fa-chevron-right" style="background-color: #1694b0"></i></div>
+
+                      <div class="testimonial-carousel" style="background-color: #8fd19e">
+                       {% for recom in rec %}
+                        <div class="h5 font-weight-normal one-slide mx-auto">
+                          <div class="testimonial w-100 px-3 text-center d-flex flex-direction-column justify-content-center flex-wrap align-items-center">
+                            <div class="message text-center blockquote w-100">{{ recom.message }}</div>
+                            <div class="blockquote-footer w-100 text-black"><a href="{{ recom.linkedin }}"> {{ recom.name }}</a>, {{ recom.organisation }}</div>
+                          </div>
+                        </div>
+                          {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
 
         <!-- Bootstrap core JS-->
@@ -237,5 +271,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{% static 'js/testimonial-slider-fullwidth.js'%}"></script>
     </body>
 </html>

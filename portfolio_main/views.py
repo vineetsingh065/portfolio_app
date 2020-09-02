@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Main, TechnicalSkills, Experience, Education, Accomplishment, Projects
+from .models import Main, TechnicalSkills, Experience, Education, Accomplishment, Projects, Recommendations
 
 # Create your views here.
 
@@ -11,6 +11,7 @@ def home(request):
     edu = Education.objects.all()
     accom = Accomplishment.objects.all()
     proj = Projects.objects.all()
+    rec = Recommendations.objects.all()
 
     return render(request, 'front/index.html', {'details': main, 'ts':ts, 'exp': exp, 'edu': edu, 'accom': accom,
-                                                'proj':proj})
+                                                'proj':proj, 'rec':rec})

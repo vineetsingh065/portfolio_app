@@ -80,4 +80,15 @@ class Education(models.Model):
         return self.institute + "|" + str(self.pk)
 
 
+class Recommendations(models.Model):
+    name = models.CharField(max_length=50)
+    organisation = models.CharField(max_length=100)
+    message = models.TextField()
+    linkedin = models.CharField(default='-', max_length=50)
+
+
+    def __str__(self):
+        return self.name
+
+
 
