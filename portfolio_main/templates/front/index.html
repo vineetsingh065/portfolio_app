@@ -5,7 +5,7 @@
     <head>
         <meta name="google-site-verification" content="1GZCeLWUOCN43diKpKdC0Ds_gF9Ew969vZNM-V8bW-c" />
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Portfolio App</title>
@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/layout_styles.css' %}" rel="stylesheet" />
+
 
     </head>
     <body id="page-top">
@@ -55,7 +56,7 @@
                                   <div class="subheading mb-2">
                                     <p class="text-info" align="center"> Software Engineer/Automation Developer  ·  (+91) {{ details.contact }} ·  <a href="mailto:{{ details.email }}">{{ details.email }}</a></p>
                                   </div>
-                                  <p class="lead mb-5">{{ details.about }}</p>
+                                  <p class="lead mb-5">{{ details.about | linebreaks }}</p>
                                 </div>
                                 <div class="card-action ">
                                   <div class="social-icons " align="center" >
@@ -76,13 +77,11 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-
-
                 <div class="card shadow p-3 mb-5 bg-white rounded">
                     <h2 class="mb-5" align="center">Experience</h2>
                     {% for experience in exp %}
                     <div id="accordion">
-                          <div class="card ">
+                          <div class="card shadow p-3 mb-5 bg-white rounded">
                             <div class="card-header" id="headingOne">
                               <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ experience.pk }}" aria-expanded="true" aria-controls="collapseOne">
@@ -125,8 +124,8 @@
 
                                             <div class="card-header" id="headingOne">
                                                   <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ project.pk }}543" aria-expanded="true" aria-controls="collapseOne">
-                                                        <p style="font-size: 30px">{{ project.project|make_list|slice:':1'|join:''  }}</p>
+                                                    <button class="btn btn-link"  data-toggle="collapse" data-target="#collapseOne{{ project.pk }}543" aria-expanded="true" aria-controls="collapseOne">
+                                                        <p style="font-size: 1rem">{{ project.project}}</p>
                                                     </button>
                                                   </h5>
                                             </div>
@@ -161,23 +160,17 @@
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
 
-                <div class="card shadow p-3 mb-5 bg-white rounded">
-                      <h2 class="mb-3" align="center">Skills</h2>
-                        <ul class="list-group list-inline dev-icons shadow p-3 mb-5 bg-white rounded">
-                            {% for skills in ts %}
-                              <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{skills.skill_name}}
-                                <span class="badge badge-primary badge-pill">{{skills.confidence}}</span>
-                                </li>
-                            {%endfor%}
-                        </ul>
-                          </div>
-
-
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                          <h2 class="mb-3" align="center">Skills</h2>
+                            <ul class="list-inline dev-icons">
+                                {% for skill in ts %}
+                                <button type="button" class="btn btn-secondary mb-1 mr-1" data-toggle="tooltip" data-placement="right" title="{{ skill.confidence }}">
+                                        {{ skill.skill_name }}
+                                </button>
+                                {% endfor %}
+                            </ul>
+                    </div>
                 </div>
-
-            <div class="row">
-
             </section>
 
             <!-- Education-->
@@ -188,7 +181,7 @@
                       <h2 class="mb-4" align="center">Education</h2>
                 {% for education in edu %}
                     <div id="accordion">
-                          <div class="card ">
+                          <div class="card shadow p-3 mb-5 bg-white rounded">
                             <div class="card-header " id="headingOne">
                               <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{ education.pk }}12300" aria-expanded="true" aria-controls="collapseOne">
@@ -234,6 +227,7 @@
                 </div>
             </section>
             {% endif %}
+
         </div>
 
         <!-- Bootstrap core JS-->

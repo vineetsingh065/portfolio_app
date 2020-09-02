@@ -29,6 +29,9 @@ class TechnicalSkills(models.Model):
     skill_name = models.CharField(max_length=50)
     confidence = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.skill_name + "|" + str(self.pk)
+
 
 class Experience(models.Model):
 
@@ -38,10 +41,15 @@ class Experience(models.Model):
     start_from = models.CharField(max_length=50)
     till = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.role + "|" + str(self.pk)
+
 
 class Accomplishment(models.Model):
 
     accolade = models.CharField(max_length=50)
+    def __str__(self):
+        return self.accolade + "|" + str(self.pk)
 
 
 class Projects(models.Model):
@@ -55,6 +63,9 @@ class Projects(models.Model):
     till = models.CharField(max_length=50)
     pic = models.ImageField(default='-')
 
+    def __str__(self):
+        return self.project + "|" + str(self.pk)
+
 
 class Education(models.Model):
 
@@ -64,6 +75,9 @@ class Education(models.Model):
     score = models.CharField(max_length=50)
     start_from = models.CharField(max_length=50)
     till = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.institute + "|" + str(self.pk)
 
 
 
