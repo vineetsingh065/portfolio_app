@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Main, TechnicalSkills, Experience, Education, Accomplishment, Projects, Recommendations
+from django.views.generic import DetailView, ListView, TemplateView
 
 # Create your views here.
 
@@ -15,3 +16,4 @@ def home(request):
 
     return render(request, 'front/index.html', {'details': main, 'ts':ts, 'exp': exp, 'edu': edu, 'accom': accom,
                                                 'proj':proj, 'rec':rec})
+

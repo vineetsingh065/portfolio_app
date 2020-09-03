@@ -4347,7 +4347,7 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 5px;
   word-wrap: break-word;
-  background-color: #20c997;
+  background-color: #fff;
   background-clip: border-box;
   border: 5px ;
   border-radius: 16px;
@@ -6176,7 +6176,7 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: #8fd19e !important;
 }
 
 .bg-transparent {
