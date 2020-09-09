@@ -13,6 +13,7 @@ def home(request):
     accom = Accomplishment.objects.all()
     proj = Projects.objects.all()
     rec = Recommendations.objects.all()
+    print()
 
     return render(request, 'front/index.html', {'details': main, 'ts':ts, 'exp': exp, 'edu': edu, 'accom': accom,
                                                 'proj':proj, 'rec':rec})
